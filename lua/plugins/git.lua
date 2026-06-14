@@ -1,11 +1,11 @@
--- Adds git related signs to the gutter, as well as utilities for managing changes
--- NOTE: gitsigns is already included in init.lua but contains only the base
--- config. This will add also the recommended keymaps.
-
 return {
+
   {
     'lewis6991/gitsigns.nvim',
     opts = {
+      diff_opts = {
+        ignore_whitespace_change = true,
+      },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
@@ -57,5 +57,22 @@ return {
         map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
       end,
     },
+  },
+
+  {
+    'tpope/vim-fugitive',
+  },
+  {
+    'sindrets/diffview.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
+    'pwntester/octo.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = true,
   },
 }
