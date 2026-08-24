@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'gitcommit', 'markdown' },
+  pattern = { 'gitcommit', 'markdown', 'dosini' },
   callback = function()
     vim.bo.textwidth = 72
     vim.wo.colorcolumn = '72'
@@ -20,7 +20,12 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.bo.expandtab = false
     vim.bo.tabstop = 8
     vim.bo.shiftwidth = 8
-    vim.bo.textwidth = 80
-    vim.wo.colorcolumn = '80'
   end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'py', 'pyi', 'python' },
+  callback = function ()
+    vim.wo.colorcolumn = '88'
+  end
 })

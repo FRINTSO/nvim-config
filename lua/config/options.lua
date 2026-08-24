@@ -21,6 +21,8 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+vim.o.termguicolors = true
+
 -- Sync clipboard between OS and Neovim.
 --	Schedule the setting after `UiEnter` because it can increase startup-time.
 --	Remove this option if you want your OS clipboard to remain independent.
@@ -87,4 +89,5 @@ vim.o.confirm = true
 vim.go.tabstop = 8
 vim.go.shiftwidth = 8
 vim.go.expandtab = false
+vim.go.textwidth = 0
 vim.go.colorcolumn = '80'

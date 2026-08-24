@@ -1,8 +1,9 @@
 -- Define once, globally accessible
-local function ColorMyPencils()
+function ColorMyPencils()
   -- clear background
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#282828' })
 end
 
 -- Sets colors to line numbers Above, Current and Below  in this order
@@ -58,5 +59,17 @@ return {
       -- vim.cmd 'colorscheme catppuccin'
       -- ColorMyPencils()
     end,
+  },
+
+  {
+    'NvChad/nvim-colorizer.lua',
+    event = 'BufReadPost',
+    opts = {
+      filetypes = { '*' },
+      user_default_options = {
+        css = true,
+        names = false,
+      },
+    },
   },
 }
